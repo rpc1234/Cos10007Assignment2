@@ -55,7 +55,7 @@ Mercury link
 https://mercury.swin.edu.au/cos10005/s106886400/assignment2/index.html
 
 GitHub repository
-Add the accessible GitHub repository URL here before submission.
+https://github.com/rpc1234/Cos10007Assignment2/
 
 JavaScript validation and behaviour
 - Registration checks username length and allowed characters, email format, phone
