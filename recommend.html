@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/favourites.js" defer></script>
+    <title>Recommendations | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="recommend.html" aria-current="page">Recommendations</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="booking.html">Book tickets</a></li>
+                <li><a href="watchlist.html">Favourites</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main">
+        <header class="page-heading">
+            <p class="eyebrow">A little help choosing</p>
+            <h1>Find your movie</h1>
+            <p>Choose any filter or combination of filters. Recommendations include movies showing now and upcoming movies, so you can save a coming-soon title to your favourites for later.</p>
+        </header>
+        <form id="recommendForm" class="form-card" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/formtest.php">
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="preferredGenre">Preferred genre <span class="hint">(optional)</span></label>
+                    <select id="preferredGenre" name="genre" disabled>
+                        <option value="">Any genre</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="ageGroup">Age group <span class="hint">(optional)</span></label>
+                    <select id="ageGroup" name="ageGroup">
+                        <option value="">Any age group</option>
+                        <option value="child">Child</option>
+                        <option value="teen">Teen</option>
+                        <option value="adult">Adult</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="viewingPreference">Viewing preference <span class="hint">(optional)</span></label>
+                    <select id="viewingPreference" name="viewingPreference">
+                        <option value="">Any viewing preference</option>
+                        <option value="family">Family</option>
+                        <option value="date">Date night</option>
+                        <option value="friends">Friends</option>
+                        <option value="solo">Solo</option>
+                    </select>
+                </div>
+            </div>
+            <button class="button" type="submit">Show recommendations</button>
+            <p class="hint">Choose at least one filter. Adults see all ratings, teens see G, PG and M, and children see G and PG. Other selected filters also apply.</p>
+        </form>
+        <p id="recommendStatus" class="status-message" role="status" aria-live="polite"></p>
+        <section id="recommendResults" class="movie-grid" aria-label="Recommended movies"></section>
+        <section class="callout suggestion-prompt" aria-labelledby="suggestionPromptHeading">
+            <h2 id="suggestionPromptHeading">Can’t find what you want?</h2>
+            <p>Suggest a movie for a future fortnightly line-up.</p>
+            <button id="openSuggestionDialog" class="button" type="button">Suggest a movie</button>
+        </section>
+        <dialog id="movieSuggestionDialog" class="suggestion-dialog" aria-labelledby="suggestionDialogHeading">
+            <form class="form-card" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/formtest.php">
+                <h2 id="suggestionDialogHeading">Suggest a movie</h2>
+                <p class="hint">Send us a title to consider for an upcoming movie line-up.</p>
+                <div class="form-grid">
+                    <div class="form-field full-width">
+                        <label for="previousMovieSuggestions">Previously suggested this week</label>
+                        <select id="previousMovieSuggestions">
+                            <option value="">Choose a previous suggestion</option>
+                        </select>
+                        <span class="hint">This list resets weekly; older submissions remain in the local Admin history.</span>
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="suggestionTitle">Movie title</label>
+                        <input id="suggestionTitle" name="movieTitle" type="text" maxlength="100" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="suggestionGenre">Genre (optional)</label>
+                        <input id="suggestionGenre" name="movieGenre" type="text" maxlength="50">
+                    </div>
+                    <div class="form-field">
+                        <label for="suggestionName">Your name (optional)</label>
+                        <input id="suggestionName" name="customerName" type="text" maxlength="80">
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="suggestionReason">Why should we show it? (optional)</label>
+                        <textarea id="suggestionReason" name="reason" rows="3" maxlength="500"></textarea>
+                    </div>
+                    <p class="hint full-width">Regular submission saves a local demo entry. Mercury Upload Test sends this form to Mercury, which displays it but does not save it.</p>
+                </div>
+                <button class="button" type="submit">Save suggestion locally</button>
+                <button id="suggestionMercuryButton" class="button button-mercury" type="button">Mercury Upload Test</button>
+                <button id="closeSuggestionDialog" class="button" type="button">Close</button>
+                <p id="suggestionStatus" class="status-message full-width" role="status" aria-live="polite"></p>
+            </form>
+        </dialog>
+    </main>
+    <aside class="ad-placement ad-banner ad-medicine-relic" aria-label="Historical Serax medicine advert">
+        <img src="images/serepax_ad.webp" alt="Vintage Serax advert, quoting, Serax — Because even she deserves a moment of ease.">
+        <div>
+            <p class="ad-label">A new product from our friends at Roche</p>
+            <h2>Serax — Because even she deserves a moment of ease.</h2>
+            <p>When the house, the family, and the endless tasks become too much, Serax helps soften tension so she can face the day with renewed steadiness..</p>
+        </div>
+    </aside>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - A student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>

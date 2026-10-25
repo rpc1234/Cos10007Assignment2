@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/favourites.js" defer></script>
+    <title>Movies | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html" aria-current="page">Movies</a></li>
+                <li><a href="recommend.html">Recommendations</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="booking.html">Book tickets</a></li>
+                <li><a href="watchlist.html">Favourites</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main">
+        <header class="page-heading">
+            <p class="eyebrow">Your movie experience awaits</p>
+            <h1>Now showing</h1>
+            <p>Click the button to load movie details from this weeks selection. Select Book this movie to continue to booking.</p>
+            <p class="image-credit movies-image-credit">Movie posters and artwork remain the property of their respective rights holders.</p>
+        </header>
+        <button id="loadMoviesButton" class="button centered-button" type="button">Show movies</button>
+        <p id="movieStatus" class="status-message" role="status" aria-live="polite"></p>
+        <section id="movieList" class="movie-grid" aria-label="Available movies" hidden></section>
+    </main>
+    <aside class="ad-placement ad-sidebar ad-nuka" aria-label="Nuka-Cola sponsor advert">
+        <div>
+            <p class="ad-label">Tonight's cinema partner</p>
+            <h2>Nuka-Cola: Quench your thirst… and a little bit more!</h2>
+            <p>Pour yourself a chilled bottle before the lights go down. The official refreshment of a double-feature night.</p>
+            <button id="showMoviesFromAd" class="button ad-link" type="button">Pick tonight's feature</button>
+        </div>
+        <img src="images/nuka_ad.jpg" alt="Vintage-style Nuka-Cola poster with a space-age pin-up and the slogan Zap that Thirst">
+        <span class="ad-world-note">Zap that thirst!</span>
+    </aside>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - A student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>

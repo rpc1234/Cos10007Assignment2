@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Movies>
+<!-- Currently Showing -->
+  <movie id="bedknobs-and-broomsticks">
+    <title>Walt Disney's Bedknobs and Broomsticks</title>
+    <genre>Fantasy</genre>
+    <tag>Magical Disney adventure</tag>
+    <ageRating>G</ageRating>
+    <runningTime>1h 57m</runningTime>
+    <collection>Children's monthly classic</collection>
+    <short_description>During the Second World War, evacuated siblings stay with apprentice witch Eglantine Price. When they discover her unfinished spell, they join her and Professor Emelius Browne on a magical journey to find the spell's missing ingredient and help defend Britain.</short_description>
+    <image>images/bed-knobs-and-broom-sticks.webp</image>
+    <ticket_price>14</ticket_price>
+    <Available_screening_times>
+      <time>11:15</time>
+      <time>15:40</time>
+    </Available_screening_times>
+  </movie>
+  <movie id="wizard-of-oz">
+    <title>The Wizard of Oz</title>
+    <genre>Fantasy</genre>
+    <tag>A journey over the rainbow</tag>
+    <ageRating>G</ageRating>
+    <runningTime>1h 42m</runningTime>
+    <short_description>A cyclone carries Dorothy from Kansas to the magical land of Oz. Hoping the Wizard can send her home, she follows the yellow brick road with the Scarecrow, Tin Man and Cowardly Lion, while the Wicked Witch pursues them.</short_description>
+    <image>images/the_wizard_of_of.jpg</image>
+    <ticket_price>13</ticket_price>
+    <Available_screening_times>
+      <time>12:20</time>
+      <time>17:10</time>
+    </Available_screening_times>
+  </movie>
+  <movie id="mary-poppins">
+    <title>Mary Poppins</title>
+    <genre>Musical</genre>
+    <tag>Disney classic</tag>
+    <ageRating>G</ageRating>
+    <runningTime>2h 19m</runningTime>
+    <short_description>Magical nanny Mary Poppins arrives to care for Jane and Michael Banks. With chimney sweep Bert, she takes the children on fantastical outings, helping their strict father reconnect with his family and bringing change to the Banks household.</short_description>
+    <image>images/mary_poppins.jpg</image>
+    <ticket_price>15</ticket_price>
+    <Available_screening_times>
+      <time>13:45</time>
+      <time>18:20</time>
+    </Available_screening_times>
+  </movie>
+  <movie id="the-man-who-knew-too-much">
+    <title>The Man Who Knew Too Much</title>
+    <genre>Thriller</genre>
+    <tag>Classic Hitchcock suspense</tag>
+    <ageRating>PG</ageRating>
+    <runningTime>2h 00m</runningTime>
+    <collection>Monthly classic</collection>
+    <short_description>On holiday in Morocco, Dr. Ben McKenna and his wife Jo learn of an assassination plot just before their young son is kidnapped. The couple follow the clues to London and race to find him before the planned attack.</short_description>
+    <image>images/the_man_who_knew_too_much.jpeg</image>
+    <ticket_price>16</ticket_price>
+    <Available_screening_times>
+      <time>14:30</time>
+      <time>19:45</time>
+    </Available_screening_times>
+  </movie>
+  <movie id="silence-of-the-lambs">
+    <title>The Silence of the Lambs</title>
+    <genre>Thriller</genre>
+    <tag>Edge-of-your-seat thriller</tag>
+    <ageRating>MA15+</ageRating>
+    <runningTime>1h 58m</runningTime>
+    <short_description>FBI trainee Clarice Starling seeks help from imprisoned psychiatrist Hannibal Lecter to understand the methods of serial killer Buffalo Bill. Their unsettling interviews become central to the investigation as Starling works to find the killer's next intended victim.</short_description>
+    <image>images/silence_of_the lambs.webp</image>
+    <ticket_price>18</ticket_price>
+    <Available_screening_times>
+      <time>16:50</time>
+      <time>21:20</time>
+    </Available_screening_times>
+  </movie>
+  <movie id="the-conjuring">
+    <title>The Conjuring</title>
+    <genre>Horror</genre>
+    <tag>Supernatural horror</tag>
+    <ageRating>MA15+</ageRating>
+    <runningTime>1h 52m</runningTime>
+    <short_description>In 1971, the Perron family move into a Rhode Island farmhouse where they encounter increasingly frightening paranormal events. Paranormal investigators Ed and Lorraine Warren examine the haunting and try to help the family escape its influence.</short_description>
+    <image>images/the_conjuring.jpg</image>
+    <ticket_price>17</ticket_price>
+    <Available_screening_times>
+      <time>17:30</time>
+      <time>21:50</time>
+    </Available_screening_times>
+  </movie>
+  <!-- Coming Soon -->
+   <movie id="bad-teacher">
+    <title>Bad Teacher</title>
+    <genre>Comedy</genre>
+    <tag>Teachers behaving badly</tag>
+    <ageRating>MA15+</ageRating>
+    <runningTime>1h 32m</runningTime>
+    <short_description>Unmotivated teacher Elizabeth Halsey plans to leave her job and marry a wealthy man, but her plans collapse. She returns to school, where her schemes for money and a new romance collide with a rival teacher and her students.</short_description>
+    <image>images/Bad_Teacher.webp</image>
+    <ticket_price>14</ticket_price>
+    <Available_screening_times>
+      <time>12:45</time>
+      <time>18:10</time>
+    </Available_screening_times>
+  </movie>
+   <movie id="rear-window">
+    <title>Rear Window</title>
+    <genre>Mystery</genre>
+    <tag>Hitchcock mystery classic</tag>
+    <ageRating>PG</ageRating>
+    <runningTime>1h 52m</runningTime>
+    <short_description>Photographer L.B. Jeffries is confined to his apartment with a broken leg and passes the time watching his neighbours. When he suspects one of them has murdered his wife, Jeffries asks his girlfriend Lisa and nurse Stella to help investigate.</short_description>
+    <collection>Monthly classic</collection>
+    <collection>Olden-day classic</collection>
+    <image>images/rear_window.jpg</image>
+    <ticket_price>13</ticket_price>
+    <Available_screening_times>
+      <time>14:10</time>
+      <time>19:10</time>
+    </Available_screening_times>
+  </movie>
+   <movie id="shindler's-list">
+    <title>Schindler's List</title>
+    <genre>Drama</genre>
+    <tag>Historical drama</tag>
+    <ageRating>MA15+</ageRating>
+    <runningTime>3h 15m</runningTime>
+    <short_description>During the Holocaust, German industrialist Oskar Schindler uses his factories and personal influence to employ Jewish workers in occupied Poland. As persecution intensifies, he risks his fortune to protect them from deportation and death.</short_description>
+    <image>images/shindlers_list.webp</image>
+    <ticket_price>20</ticket_price>
+    <Available_screening_times>
+      <time>15:20</time>
+      <time>20:30</time>
+    </Available_screening_times>
+  </movie>
+   <movie id="sixth_sense">
+    <title>The Sixth Sense</title>
+    <genre>Thriller</genre>
+    <tag>Supernatural psychological thriller</tag>
+    <ageRating>M</ageRating>
+    <runningTime>1h 47m</runningTime>
+    <short_description>Child psychologist Malcolm Crowe begins treating Cole Sear, a boy who says he can see and speak with the dead. As Crowe tries to understand Cole's experiences, their work changes both of their lives.</short_description>
+    <image>images/sixth_sense.webp</image>
+    <ticket_price>16</ticket_price>
+    <Available_screening_times>
+      <time>15:00</time>
+      <time>20:50</time>
+    </Available_screening_times>
+  </movie>
+   <movie id="sound-of-music">
+    <title>The Sound of Music</title>
+    <genre>Musical</genre>
+    <tag>Beloved family musical</tag>
+    <ageRating>PG</ageRating>
+    <runningTime>2h 54m</runningTime>
+    <short_description>Novice Maria becomes governess to the seven children of widowed Austrian naval officer Captain von Trapp. Music helps the family grow closer, but when the Nazis take control of Austria, they must decide how to escape.</short_description>
+    <collection>Children's classic</collection>
+    <collection>Children's monthly classic</collection>
+    <image>images/sound_of_music.webp</image>
+    <ticket_price>17</ticket_price>
+    <Available_screening_times>
+      <time>11:40</time>
+      <time>16:25</time>
+    </Available_screening_times>
+  </movie>
+   <movie id="this-is-40">
+    <title>This Is 40</title>
+    <genre>Comedy</genre>
+    <tag>Grown-up relationship comedy</tag>
+    <ageRating>M</ageRating>
+    <runningTime>2h 14m</runningTime>
+    <short_description>Married couple Pete and Debbie approach their fortieth birthdays while juggling work, money worries, ageing parents and the needs of their two daughters. Their efforts to keep family life on track put new pressure on their relationship.</short_description>
+    <image>images/this_is_40.webp</image>
+    <ticket_price>15</ticket_price>
+    <Available_screening_times>
+      <time>13:10</time>
+      <time>18:40</time>
+    </Available_screening_times>
+  </movie>
+</Movies>

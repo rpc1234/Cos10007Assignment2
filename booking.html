@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>Book tickets | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="recommend.html">Recommendations</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="booking.html" aria-current="page">Book tickets</a></li>
+                <li><a href="watchlist.html">Favourites</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main narrow-main">
+        <header class="page-heading">
+            <p class="eyebrow">Your cinema visit</p>
+            <h1>Book tickets</h1>
+            <p>Choose a movie, session and ticket options</p>
+        </header>
+        <form id="regform" class="form-card" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" novalidate>
+            <div id="bookingErrors" class="error-summary" role="alert" aria-live="assertive" tabindex="-1" hidden></div>
+            <div class="form-grid">
+                <div class="form-field full-width">
+                    <label for="movieSelect">Movie</label>
+                    <select id="movieSelect" name="movie" required>
+                        <option value="">Loading movies…</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="fullName">Full name</label>
+                    <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="bookingEmail">Email address</label>
+                    <input id="bookingEmail" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="phoneNumber">Phone number</label>
+                    <input id="phoneNumber" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="form-field">
+                    <label for="screeningDate">Screening date</label>
+                    <input id="screeningDate" name="screeningDate" type="date" required>
+                </div>
+                <div class="form-field">
+                    <label for="screeningTime">Session time</label>
+                    <select id="screeningTime" name="screeningTime" required>
+                        <option value="">Select a movie first</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="ticketCount">Number of tickets</label>
+                    <input id="ticketCount" name="ticketCount" type="number" min="1" value="1" required>
+                </div>
+                <div class="form-field">
+                    <label for="ticketType">Ticket type</label>
+                    <select id="ticketType" name="ticketType" required>
+                        <option value="">Choose a ticket type</option>
+                        <option value="adult">Adult</option>
+                        <option value="child">Child</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="bookingCost">Booking cost</label>
+                    <input id="bookingCost" name="bookingCost" type="text" readonly value="$0.00">
+                </div>
+                <div class="form-field full-width">
+                    <label for="requests">Special requests <span class="hint">(optional)</span></label>
+                    <textarea id="requests" name="requests" rows="3"></textarea>
+                </div>
+                <fieldset class="form-field full-width">
+                    <legend>Payment method</legend>
+                    <div class="choice-row">
+                        <label><input type="radio" name="paymentMethod" value="voucher" required> Voucher</label>
+                        <label><input type="radio" name="paymentMethod" value="online"> Online payment</label>
+                    </div>
+                </fieldset>
+                <div id="voucherFields" class="form-field full-width" hidden>
+                    <label for="voucherCode">12-digit voucher code</label>
+                    <input id="voucherCode" name="voucherCode" type="text" inputmode="numeric" maxlength="12">
+                </div>
+                <fieldset id="cardFields" class="form-field full-width" hidden>
+                    <legend>Credit card details</legend>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="cardType">Card type</label>
+                            <select id="cardType" name="cardType">
+                                <option value="">Choose a card type</option>
+                                <option value="visa">Visa</option>
+                                <option value="mastercard">Mastercard</option>
+                                <option value="amex">American Express</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="cardNumber">Card number</label>
+                            <input id="cardNumber" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number">
+                        </div>
+                    </div>
+                    <p class="hint">Use fake card details only. No payment is processed.</p>
+                </fieldset>
+                <div class="form-field full-width">
+                    <label for="billingEmail">Billing email address</label>
+                    <input id="billingEmail" name="billingEmail" type="email" autocomplete="email" required>
+                    <label class="inline-choice"><input id="sameBillingEmail" type="checkbox"> Same as email address</label>
+                </div>
+            </div>
+            <button class="button" type="submit">Save booking locally</button>
+            <button id="bookingMercuryButton" class="button button-mercury" type="button">Mercury Upload Test</button>
+            <p id="bookingStatus" class="status-message" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+    <aside class="ad-placement ad-vintage ad-era" aria-label="Vintage cinema sponsor card">
+        <p class="ad-label">Thanks to our sponsors</p>
+        <img src="images/PM_ad.jpg" alt="Vintage Philip Morris and Marlboro cigarette advertisement, quoting, A Smile, A Spark, A Philip Morris Moment.">
+        <h2>During Intermission</h2>
+        <p>A Smile, A Spark, A Philip Morris Moment.  </p>
+        <span class="ad-world-note">The long, easy draw that keeps conversations warm and evenings unforgettable.</span>
+    </aside>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - A student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>

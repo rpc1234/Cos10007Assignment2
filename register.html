@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>Register | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="recommend.html">Recommendations</a></li>
+                <li><a href="register.html" aria-current="page">Register</a></li>
+                <li><a href="booking.html">Book tickets</a></li>
+                <li><a href="watchlist.html">Favourites</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main narrow-main">
+        <header class="page-heading">
+            <p class="eyebrow">Join the club</p>
+            <h1>Create your account</h1>
+            <p>Register and become a Member of Hao's today to save your favourites, suggest our next line up and Book to see a show.</p>
+        </header>
+        <form id="regform" class="form-card" method="post" action="http://mercury.swin.edu.au/it000000/cos10005/formtest.php" novalidate>
+            <div id="registerErrors" class="error-summary" role="alert" aria-live="assertive" tabindex="-1" hidden></div>
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text" autocomplete="username" required>
+                </div>
+                <div class="form-field">
+                    <label for="registerEmail">Email address</label>
+                    <input id="registerEmail" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="registerPhone">Phone number</label>
+                    <input id="registerPhone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="form-field">
+                    <label for="registerPassword">Password</label>
+                    <input id="registerPassword" name="password" type="password" autocomplete="new-password" required>
+                </div>
+                <div class="form-field">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required>
+                </div>
+                <fieldset class="form-field full-width">
+                    <legend>Gender</legend>
+                    <div class="choice-row">
+                        <label><input type="radio" name="gender" value="Female" required> Female</label>
+                        <label><input type="radio" name="gender" value="Male"> Male</label>
+                    </div>
+                </fieldset>
+                <div class="form-field full-width">
+                    <span class="field-label">Preferred movie genres <span class="hint">(choose one or more)</span></span>
+                    <details id="genreDropdown" class="genre-dropdown">
+                        <summary id="genreSummary">Choose genres</summary>
+                        <div class="genre-options">
+                            <label><input type="checkbox" value="Action"> Action</label>
+                            <label><input type="checkbox" value="Adventure"> Adventure</label>
+                            <label><input type="checkbox" value="Comedy"> Comedy</label>
+                            <label><input type="checkbox" value="Drama"> Drama</label>
+                            <label><input type="checkbox" value="Horror"> Horror</label>
+                            <label><input type="checkbox" value="Thriller"> Thriller</label>
+                            <label><input type="checkbox" value="Science Fiction"> Science Fiction</label>
+                            <label><input type="checkbox" value="Fantasy"> Fantasy</label>
+                            <label><input type="checkbox" value="Romance"> Romance</label>
+                            <label><input type="checkbox" value="Mystery"> Mystery</label>
+                            <label><input type="checkbox" value="Crime"> Crime</label>
+                            <label><input type="checkbox" value="Animation"> Animation</label>
+                            <label><input type="checkbox" value="Documentary"> Documentary</label>
+                            <label><input type="checkbox" value="Family"> Family</label>
+                            <label><input type="checkbox" value="Musical"> Musical</label>
+                            <label><input type="checkbox" value="War"> War</label>
+                            <label><input type="checkbox" value="Western"> Western</label>
+                            <label><input type="checkbox" value="Historical"> Historical</label>
+                            <label><input type="checkbox" value="Biographical"> Biographical</label>
+                            <label><input type="checkbox" value="Sport"> Sport</label>
+                            <label><input type="checkbox" value="Superhero"> Superhero</label>
+                            <label><input type="checkbox" value="Noir"> Noir</label>
+                            <label><input type="checkbox" value="Psychological Thriller"> Psychological Thriller</label>
+                            <label><input type="checkbox" value="Dark Comedy"> Dark Comedy</label>
+                            <label><input type="checkbox" value="Romantic Comedy"> Romantic Comedy</label>
+                            <label><input type="checkbox" value="Slice of Life"> Slice of Life</label>
+                            <label><input type="checkbox" value="Coming-of-Age"> Coming-of-Age</label>
+                            <label><input type="checkbox" value="Epic"> Epic</label>
+                            <label><input type="checkbox" value="Disaster"> Disaster</label>
+                            <label><input type="checkbox" value="Heist"> Heist</label>
+                            <label><input type="checkbox" value="Spy"> Spy</label>
+                            <label><input type="checkbox" value="Political Drama"> Political Drama</label>
+                            <label><input type="checkbox" value="Legal Drama"> Legal Drama</label>
+                            <label><input type="checkbox" value="Period Drama"> Period Drama</label>
+                            <label><input type="checkbox" value="Martial Arts"> Martial Arts</label>
+                            <label><input type="checkbox" value="Cyberpunk"> Cyberpunk</label>
+                            <label><input type="checkbox" value="Steampunk"> Steampunk</label>
+                            <label><input type="checkbox" value="Post-Apocalyptic"> Post-Apocalyptic</label>
+                            <label><input type="checkbox" value="Survival"> Survival</label>
+                            <label><input type="checkbox" value="Gothic Horror"> Gothic Horror</label>
+                            <label><input type="checkbox" value="Slasher"> Slasher</label>
+                            <label><input type="checkbox" value="Paranormal"> Paranormal</label>
+                            <label><input type="checkbox" value="Creature Feature"> Creature Feature</label>
+                            <label><input type="checkbox" value="Space Opera"> Space Opera</label>
+                            <label><input type="checkbox" value="Experimental"> Experimental</label>
+                            <label><input type="checkbox" value="Anthology"> Anthology</label>
+                            <label><input type="checkbox" value="Road Movie"> Road Movie</label>
+                            <label><input type="checkbox" value="Satire"> Satire</label>
+                            <label><input type="checkbox" value="Mockumentary"> Mockumentary</label>
+                            <label><input type="checkbox" value="Found Footage"> Found Footage</label>
+                        </div>
+                    </details>
+                </div>
+                <div class="form-field">
+                    <label for="country">Country/Region</label>
+                    <select id="country" name="country" required>
+                        <option value="">Choose a country or region</option>
+                        <option value="Australia">Australia</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <button class="button" type="submit">Save registration locally</button>
+            <button id="registerMercuryButton" class="button button-mercury" type="button">Mercury Upload Test</button>
+            <p id="registerStatus" class="status-message" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+    <section class="ad-placement ad-sponsor-card" aria-label="Vintage advert display">
+        <div>
+            <p class="ad-label">Thanks to our Sponsors</p>
+            <h2>This Is It. L&M Filters.</h2>
+            <p>The choice for those who want a smoother draw and a touch of modern refinement. A filter made to keep every moment crisp and satisfying.</p>
+        </div>
+        <img src="images/cig_ad.jpg" alt="Vintage LM Cigarette Advert">
+    </section>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - A student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/favourites.js" defer></script>
+    <title>Favourites | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="recommend.html">Recommendations</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="booking.html">Book tickets</a></li>
+                <li><a href="watchlist.html" aria-current="page">Favourites</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main">
+        <header class="page-heading">
+            <p class="eyebrow">Keep track of movies to watch</p>
+            <h1>Your favourites</h1>
+            <p>Your selections are saved in this browser, so they stay available while you move between pages. Browser memory refreshes when you close the browser or refresh the pag.</p>
+        </header>
+        <p id="watchlistStatus" class="status-message" role="status" aria-live="polite"></p>
+        <section id="watchlistMovies" class="movie-grid" aria-label="Your favourite movies"></section>
+    </main>
+    <aside class="ad-placement ad-ticket ad-medicine-relic" aria-label="Historical Xanax medicine advert">
+        <img src="images/xanax_ad.jpg" alt="Vintage Xanax advert, quoting, Xanax — because everyone deserves a moment of quiet.">
+        <div>
+            <p class="ad-label">Xanax — because everyone deserves a moment of quiet</p>
+            <p>Created for the fast-moving modern age, Xanax helps smooth the edges of everyday strain. A dependable companion when clarity matters.</p>
+        </div>
+    </aside>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - A student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>

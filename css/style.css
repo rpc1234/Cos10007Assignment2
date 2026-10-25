@@ -1,0 +1,815 @@
+/* DESIGN TOKENS: shared colours keep every page in the same warm palette. */
+:root {
+    --ink: #302a25;
+    --muted: #625a50;
+    --surface: #eee8d6;
+    --page: #e3dbc7;
+    --accent: #db7c49;
+    --accent-dark: #87401f;
+    --line: #c9bda5;
+    --nav: #302a25;
+}
+
+/* GLOBAL BASE: predictable sizing and shared page typography. */
+* { box-sizing: border-box; }
+
+/* Set the site-wide type, text colour and page background. */
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* GLOBAL LINKS: give links a clear accent and darker hover state. */
+a { color: var(--accent-dark); }
+a:hover { color: #71351b; }
+
+/* HEADER AND NAVIGATION: align the brand and navigation above page content. */
+.site-header {
+    align-items: center;
+    background: var(--nav);
+    border-bottom: 4px solid var(--accent);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: space-between;
+    padding: 1rem max(1.25rem, calc((100% - 1120px) / 2));
+    position: relative;
+    z-index: 1;
+}
+
+/* Emphasize the site name and animate its hover response. */
+.brand {
+    align-items: center;
+    color: var(--surface);
+    display: inline-flex;
+    font-size: 1.5rem;
+    font-weight: 800;
+    gap: 0.7rem;
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+/* Frame the square logo like a small illuminated cinema marquee. */
+.brand img {
+    background: #111;
+    border: 2px solid #e7ae45;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(231, 174, 69, 0.16), 0 4px 12px rgba(0, 0, 0, 0.45);
+    display: block;
+    height: 58px;
+    object-fit: cover;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    width: 58px;
+}
+
+/* Lift and brighten the brand slightly when it is hovered. */
+.brand:hover {
+    color: #f2ad7d;
+    transform: translateY(-1px);
+}
+
+.brand:hover img {
+    box-shadow: 0 0 0 4px rgba(231, 174, 69, 0.3), 0 6px 16px rgba(0, 0, 0, 0.5);
+    transform: rotate(-2deg) scale(1.03);
+}
+
+/* Arrange navigation links in a wrapping horizontal row. */
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Make each navigation link large enough to tap and easy to scan. */
+.site-nav a {
+    border-radius: 5px;
+    color: var(--surface);
+    display: block;
+    padding: 0.5rem 0.7rem;
+    position: relative;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+/* Add an animated underline beneath hovered and active navigation items. */
+.site-nav a::after {
+    background: var(--accent);
+    border-radius: 2px;
+    bottom: 0.2rem;
+    content: "";
+    height: 2px;
+    left: 0.7rem;
+    position: absolute;
+    right: 0.7rem;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
+
+/* Highlight a navigation link while the pointer is over it. */
+.site-nav a:hover {
+    background: rgba(238, 232, 214, 0.1);
+    color: #f2ad7d;
+    transform: translateY(-1px);
+}
+
+/* Reveal the underline for hovered links and the current page. */
+.site-nav a:hover::after, .site-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+/* Mark the current page with a warm tint and stronger text. */
+.site-nav a[aria-current="page"] {
+    background: rgba(219, 124, 73, 0.18);
+    color: #ffd0ad;
+    font-weight: 700;
+}
+
+/* HOME HERO: arrange the introduction and featured image. */
+.hero {
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 82% 20%, rgba(219, 124, 73, 0.23), transparent 34%),
+        linear-gradient(125deg, #302a25, #49352b 65%, #71432e);
+    color: var(--surface);
+    display: grid;
+    gap: clamp(2rem, 6vw, 5rem);
+    grid-template-columns: 1.1fr 0.9fr;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6.5rem) max(1.25rem, calc((100% - 1120px) / 2));
+}
+
+/* Introduce the home-page copy with a short upward entrance animation. */
+.hero-copy { animation: rise-in 650ms ease-out both; }
+
+/* Scale the main hero heading responsively while keeping its line height compact. */
+.hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin: 0.25rem 0 1rem;
+    max-width: 760px;
+}
+
+/* Make the supporting hero text comfortably readable. */
+.hero-copy > p:not(.eyebrow) { font-size: 1.15rem; max-width: 660px; }
+
+/* Style small uppercase labels used to introduce page sections. */
+.eyebrow { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* Contrast the hero label against its dark background. */
+.hero .eyebrow { color: #f2ad7d; }
+
+/* Frame and position the featured home-page image. */
+.hero-poster {
+    animation: poster-arrive 850ms 120ms ease-out both;
+    border: 4px solid rgba(238, 232, 214, 0.72);
+    border-radius: 14px;
+    box-shadow: 0 24px 55px rgba(16, 12, 10, 0.4);
+    display: block;
+    justify-self: end;
+    max-height: 390px;
+    object-fit: cover;
+    transform: rotate(2deg);
+    transition: box-shadow 220ms ease, transform 220ms ease;
+    width: min(100%, 440px);
+}
+
+/* Keep the home artwork and its source credit together in the hero grid. */
+.hero-artwork { justify-self: end; margin: 0; width: min(100%, 440px); }
+.hero-artwork .hero-poster { width: 100%; }
+.image-credit { color: var(--muted); font-size: 0.9rem; margin: 0.5rem 0 0; }
+.hero-artwork .image-credit { color: var(--surface); text-align: center; }
+.movies-image-credit { text-align: center; }
+.hero-poster.archive-hero-ad { background: #f1dfbb; object-fit: contain; }
+
+/* Add a slight zoom and shadow to the poster on hover. */
+.hero-poster:hover {
+    box-shadow: 0 30px 65px rgba(16, 12, 10, 0.5);
+    transform: rotate(0) scale(1.02);
+}
+
+/* SHARED ACTIONS: keep buttons consistent across hero, listings and forms. */
+.button-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+
+/* Give buttons a consistent brand colour, padding and transition. */
+.button {
+    background: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-block;
+    font: inherit;
+    font-weight: 700;
+    padding: 0.65rem 1rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+/* Show clear hover and keyboard-focus states on buttons. */
+.button:hover, .button:focus { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; transform: translateY(-2px); }
+
+/* Use an outlined version for secondary actions in the dark hero. */
+.button-secondary { background: transparent; border-color: var(--surface); color: var(--surface); }
+
+/* Invert the secondary button on hover or keyboard focus. */
+.button-secondary:hover, .button-secondary:focus { background: var(--surface); color: var(--ink); border-color: var(--surface); }
+
+/* Make the separate Mercury testing action stand out in red. */
+.button-mercury { background: #a5222d; border-color: #a5222d; color: #fff; }
+.button-mercury:hover, .button-mercury:focus { background: #761720; border-color: #761720; }
+
+/* HOME CONTENT AND PAGE LAYOUT: constrain and space the main content areas. */
+.content-section, .callout, .page-main {
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 2.5rem 1.25rem;
+}
+
+/* Keep section headings visually distinct and fluid across screen sizes. */
+.content-section h2, .callout h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+
+/* Display home-page features as a three-column grid on wide screens. */
+.feature-grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+
+/* Give cards and forms a matching surface, border and soft shadow. */
+.feature-card, .callout, .form-card, .movie-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 5px 16px rgba(48, 42, 37, 0.07);
+}
+
+/* Accent feature cards and animate their lift when hovered. */
+.feature-card {
+    border-top: 4px solid var(--accent);
+    padding: 1.25rem;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+/* Lift a feature card and deepen its shadow on hover. */
+.feature-card:hover {
+    box-shadow: 0 13px 28px rgba(48, 42, 37, 0.13);
+    transform: translateY(-4px);
+}
+
+/* Align the feature heading with the top edge of its card. */
+.feature-card h3 { margin-top: 0; }
+
+/* Set off the callout with a vertical orange accent border. */
+.callout { border-left: 5px solid var(--accent); margin-bottom: 2rem; }
+
+/* Make prominent inline links bold enough to notice. */
+.text-link { font-weight: 700; }
+
+/* Give page content breathing room and keep the footer below short pages. */
+.page-main { min-height: 70vh; }
+
+/* Narrow forms to a comfortable reading width. */
+.narrow-main { max-width: 850px; }
+
+/* Center and constrain each page's introductory heading. */
+.page-heading { margin: 0 auto 1.5rem; max-width: 760px; text-align: center; }
+
+/* Size page titles responsively and preserve their compact rhythm. */
+.page-heading h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0.25rem 0 0.75rem; }
+
+/* Colour page-heading labels with the dark accent for readable contrast. */
+.page-heading .eyebrow { color: var(--accent-dark); }
+
+/* MOVIE LISTING: show movie details in a responsive card grid. */
+.movie-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Center the movie-list load button above its results. */
+.centered-button { display: block; margin: 1.5rem auto; }
+
+/* Crop movie cards cleanly and animate their hover state. */
+.movie-card {
+    overflow: hidden;
+    transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+/* Lift movie cards slightly when hovered. */
+.movie-card:hover {
+    box-shadow: 0 15px 30px rgba(48, 42, 37, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Frame full movie posters so their artwork is visible without a tight crop. */
+.movie-card-poster {
+    background:
+        radial-gradient(ellipse at 50% 42%, rgba(255, 244, 221, 0.95), transparent 52%),
+        linear-gradient(145deg, #49352b, #302a25 68%, #68412d);
+    height: 330px;
+    overflow: hidden;
+    padding: 0.9rem;
+    position: relative;
+}
+
+/* Add a small cinema-style label to the poster frame. */
+.movie-card-poster::after {
+    background: var(--accent);
+    border-radius: 0 0 6px 0;
+    color: var(--ink);
+    content: "NOW SHOWING";
+    font-size: 0.7rem;
+    font-weight: 800;
+    left: 0;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.65rem;
+    position: absolute;
+    top: 0;
+}
+
+/* Mark upcoming titles clearly without implying they can be booked yet. */
+.movie-card[data-coming-soon="true"] .movie-card-poster::after {
+    background: #f1c36c;
+    content: "COMING SOON";
+}
+
+.movie-group-heading { grid-column: 1 / -1; margin: 0.75rem 0 0; }
+.coming-soon-note { color: var(--accent-dark); font-weight: 700; }
+
+/* Show short editorial movie highlights as compact, wrapping badges. */
+.movie-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0.6rem 0;
+    padding: 0;
+}
+
+.movie-tags li {
+    background: #f3dfbd;
+    border: 1px solid #d9b77e;
+    border-radius: 999px;
+    color: #553b22;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 0.25rem 0.65rem;
+}
+
+/* Show the complete poster artwork with a soft shadow against its frame. */
+.movie-card-poster img {
+    display: block;
+    filter: drop-shadow(0 8px 10px rgba(16, 12, 10, 0.35));
+    height: 100%;
+    object-fit: contain;
+    transition: filter 220ms ease, transform 220ms ease;
+    width: 100%;
+}
+
+/* Add a subtle poster lift when the movie card is hovered. */
+.movie-card:hover .movie-card-poster img {
+    filter: drop-shadow(0 12px 12px rgba(16, 12, 10, 0.45));
+    transform: scale(1.035);
+}
+
+/* Style individually placed archival adverts as compact page features. */
+.ad-placement {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 8px 22px rgba(48, 42, 37, 0.12);
+    margin: 1.5rem auto 2.5rem;
+    max-width: 1050px;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.ad-label {
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.45rem;
+    text-transform: uppercase;
+}
+
+.ad-link {
+    background: var(--accent);
+    border-radius: 4px;
+    color: var(--ink);
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.7rem;
+    text-decoration: none;
+}
+
+.ad-link:hover, .ad-link:focus { background: #f2ad7d; color: var(--ink); }
+
+.ad-world-note {
+    display: block;
+    font-size: 0.78rem;
+    font-style: italic;
+    margin-top: 0.6rem;
+    opacity: 0.82;
+}
+
+.ad-sidebar {
+    align-items: center;
+    background: linear-gradient(110deg, #f5edda, #e7dbc1);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr minmax(140px, 230px);
+}
+
+.ad-sidebar img {
+    background: #fff;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 14px rgba(48, 42, 37, 0.2);
+    display: block;
+    max-height: 250px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.ad-sidebar.ad-nuka {
+    background:
+        radial-gradient(ellipse at 78% 48%, rgba(255, 255, 235, 0.88), transparent 40%),
+        linear-gradient(115deg, #a71926, #d64236 58%, #f1c36c);
+    border: 3px solid #f4d783;
+    color: #fff8e7;
+    grid-template-columns: 1fr minmax(200px, 285px);
+}
+
+.ad-sidebar.ad-nuka .ad-label { color: #ffe88e; }
+.ad-sidebar.ad-nuka h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; }
+.ad-sidebar.ad-nuka img {
+    border: 4px solid #fff4d4;
+    box-shadow: 0 8px 20px rgba(60, 8, 10, 0.38);
+    max-height: 340px;
+}
+.ad-sidebar.ad-nuka .ad-world-note { color: #fff3cb; font-weight: 700; }
+
+.ad-banner {
+    align-items: center;
+    background: #302a25;
+    color: var(--surface);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(130px, 210px) 1fr;
+}
+
+.ad-banner img {
+    background: #fff;
+    max-height: 170px;
+    object-fit: contain;
+    padding: 0.4rem;
+    width: 100%;
+}
+
+.ad-banner .ad-label { color: #f2ad7d; }
+.ad-banner h2, .ad-ticket p:last-child { margin: 0 0 0.4rem; }
+.ad-banner .ad-world-note { color: var(--surface); }
+
+.ad-medicine-relic {
+    background:
+        repeating-linear-gradient(0deg, rgba(94, 72, 45, 0.035) 0, rgba(94, 72, 45, 0.035) 1px, transparent 1px, transparent 4px),
+        #eee2c6;
+    border: 3px double #70513a;
+    color: #34291f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.ad-medicine-relic .ad-label {
+    color: #70402d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ad-medicine-relic h2 { font-family: Georgia, "Times New Roman", serif; }
+.ad-medicine-relic .ad-world-note { color: #62513f; font-family: Arial, Helvetica, sans-serif; }
+
+.ad-vintage {
+    background: #f1dfbb;
+    border: 4px double #71432e;
+    color: #302a25;
+    max-width: 660px;
+    text-align: center;
+}
+
+.ad-vintage img {
+    display: block;
+    margin: 0.7rem auto;
+    max-height: 360px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.ad-vintage .ad-label { color: #71351b; }
+.ad-vintage h2 { font-family: Georgia, "Times New Roman", serif; }
+.ad-vintage .ad-world-note { font-size: 0.82rem; }
+
+.ad-ticket {
+    align-items: center;
+    background: #fff8e7;
+    border-left: 8px solid var(--accent);
+    display: flex;
+    gap: 1rem;
+    max-width: 720px;
+}
+
+.ad-ticket img {
+    background: #fff;
+    max-height: 180px;
+    object-fit: contain;
+    width: min(35%, 180px);
+}
+
+.ad-sponsor-card {
+    align-items: center;
+    background: #e8e1d2;
+    border: 2px dashed #8b6b4f;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr minmax(130px, 210px);
+    max-width: 850px;
+}
+
+.ad-sponsor-card img {
+    background: #fff;
+    max-height: 220px;
+    object-fit: contain;
+    width: 100%;
+}
+
+/* Add consistent interior spacing around movie information. */
+.movie-card-content { padding: 1rem 1.2rem 1.25rem; }
+
+/* Style movie titles for a clear, compact card heading. */
+.movie-card h2 { font-size: 1.35rem; line-height: 1.25; margin: 0 0 0.25rem; }
+
+/* De-emphasize movie metadata without sacrificing contrast. */
+.movie-meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.8rem; }
+
+/* Separate movie description paragraphs from adjacent card content. */
+.movie-card p { margin: 0.65rem 0; }
+
+/* Space the movie suggestion prompt below recommendation results. */
+.suggestion-prompt { margin-top: 2rem; }
+
+/* Keep the movie suggestion dialog within the viewport on all devices. */
+.suggestion-dialog {
+    border: 0;
+    border-radius: 12px;
+    max-height: calc(100vh - 2rem);
+    max-width: 640px;
+    overflow-y: auto;
+    padding: 0;
+    width: calc(100% - 2rem);
+}
+
+/* Add the shared backdrop treatment to the suggestion dialog. */
+.suggestion-dialog::backdrop { background: rgba(48, 42, 37, 0.72); }
+
+/* Align the dialog heading and form actions consistently. */
+.suggestion-dialog h2 { margin-top: 0; }
+.suggestion-dialog .button + .button { margin-left: 0.5rem; }
+
+/* Align movie detail labels and values into two readable columns. */
+.movie-card dl { display: grid; gap: 0.3rem 0.8rem; grid-template-columns: max-content 1fr; margin: 0.9rem 0; }
+
+/* Distinguish movie detail terms from their values. */
+.movie-card dt { font-weight: 700; }
+
+/* Remove default definition-list indentation from detail values. */
+.movie-card dd { margin: 0; }
+
+/* Add space above the booking action within each movie card. */
+.movie-card .button { margin-top: 0.4rem; }
+
+/* Separate the add/remove favourite action from the booking link. */
+.movie-card .watchlist-toggle { margin: 0.65rem 0 0 0.4rem; }
+
+/* FORMS: arrange labels, controls, choices and validation messages. */
+.form-card { padding: clamp(1rem, 3vw, 2rem); }
+
+/* Arrange form controls in two columns where screen space allows. */
+.form-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Allow grid children to shrink without overflowing their columns. */
+.form-field { min-width: 0; }
+
+/* Let selected fields span the full width of their form grid. */
+.full-width { grid-column: 1 / -1; }
+
+/* Give form labels and fieldset legends a clear, consistent weight. */
+.form-field > label, .form-field legend { display: block; font-weight: 700; margin-bottom: 0.35rem; }
+
+/* Style text fields, selectors and textareas consistently. */
+.form-field input:not([type="radio"]):not([type="checkbox"]), .form-field select, .form-field textarea {
+    background: #f7f2e5;
+    border: 1px solid #8b93a2;
+    border-radius: 5px;
+    color: var(--ink);
+    font: inherit;
+    min-height: 2.8rem;
+    padding: 0.55rem 0.65rem;
+    width: 100%;
+}
+/* Style the genre picker as a dropdown with independently checked choices. */
+.field-label { display: block; font-weight: 700; margin-bottom: 0.35rem; }
+.genre-dropdown { position: relative; }
+.genre-dropdown summary {
+    background: #f7f2e5;
+    border: 1px solid #8b93a2;
+    border-radius: 5px;
+    cursor: pointer;
+    list-style: none;
+    min-height: 2.8rem;
+    overflow-wrap: anywhere;
+    padding: 0.55rem 2.4rem 0.55rem 0.65rem;
+    position: relative;
+}
+.genre-dropdown summary::-webkit-details-marker { display: none; }
+.genre-dropdown summary::after {
+    content: "▾";
+    position: absolute;
+    right: 0.8rem;
+    top: 0.45rem;
+}
+.genre-dropdown[open] summary { border-color: var(--accent-dark); border-radius: 5px 5px 0 0; }
+.genre-options {
+    background: var(--surface);
+    border: 1px solid #8b93a2;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 8px 18px rgba(48, 42, 37, 0.15);
+    display: grid;
+    gap: 0.2rem 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 18rem;
+    overflow-y: auto;
+    padding: 0.65rem;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+.genre-options label { align-items: center; border-radius: 4px; display: flex; gap: 0.45rem; padding: 0.25rem; }
+.genre-options label:hover { background: rgba(219, 124, 73, 0.18); }
+.genre-options input { accent-color: var(--accent-dark); }
+
+/* Let users adjust the height of the special-requests field. */
+.form-field textarea { resize: vertical; }
+
+/* Provide visible keyboard focus on form controls and interactive links. */
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus, .button:focus, a:focus {
+    outline: 3px solid #e9a77f;
+    outline-offset: 2px;
+}
+
+/* Remove browser fieldset chrome while preserving the semantic grouping. */
+fieldset.form-field { border: 0; margin: 0; padding: 0; }
+
+/* Arrange radio and checkbox choices in a wrapping row. */
+.choice-row { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; }
+
+/* Align choice controls with their labels. */
+.choice-row label, .inline-choice { align-items: center; display: inline-flex; gap: 0.4rem; }
+
+/* Separate the same-email option from the billing email input. */
+.inline-choice { margin-top: 0.55rem; }
+
+/* Display hints in a smaller, muted style. */
+.hint { color: var(--muted); font-size: 0.92rem; font-weight: 400; }
+
+/* Separate the form's submission action from its fields. */
+.form-card > .button { margin-top: 1.25rem; }
+
+/* Highlight validation messages while retaining readable contrast. */
+.error-summary {
+    background: #fff0f1;
+    border: 1px solid #c74458;
+    border-radius: 6px;
+    color: #6b1022;
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+}
+
+/* Indent individual messages in the validation summary. */
+.error-summary ul { margin: 0.4rem 0 0; padding-left: 1.3rem; }
+
+/* Center status feedback and use the shared muted text colour. */
+.status-message { color: var(--muted); text-align: center; }
+
+/* Do not reserve space when a live status region has no message. */
+.status-message:empty { display: none; }
+
+/* ADMIN PAGE: access banner and locally saved data tables. */
+.admin-access-banner {
+    align-items: center;
+    background: linear-gradient(110deg, #40171c, #76212a 70%, #9e3032);
+    border: 2px solid #e0a548;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(48, 18, 17, 0.25), inset 0 0 0 3px rgba(255, 228, 162, 0.12);
+    color: #fff4dc;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto 1.75rem;
+    max-width: 850px;
+    padding: 1rem 1.25rem;
+    position: relative;
+}
+
+.admin-access-icon {
+    align-items: center;
+    border: 2px solid #f1c36c;
+    border-radius: 50%;
+    color: #ffe08a;
+    display: inline-flex;
+    flex: 0 0 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    height: 2.5rem;
+    justify-content: center;
+    line-height: 1;
+    width: 2.5rem;
+}
+
+.admin-access-banner div { min-width: 0; }
+.admin-access-label { color: #ffd278; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; margin: 0; text-transform: uppercase; }
+.admin-access-banner h2 { font-size: clamp(1.2rem, 3vw, 1.7rem); letter-spacing: 0.04em; line-height: 1.2; margin: 0.15rem 0; text-transform: uppercase; }
+.admin-access-banner div > p:last-child { color: #f1dfc6; font-size: 0.92rem; margin: 0; }
+.admin-access-stamp { border: 1px solid rgba(255, 226, 158, 0.65); color: #ffe08a; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; margin-left: auto; padding: 0.3rem 0.45rem; transform: rotate(-8deg); }
+
+.admin-results { margin-top: 2rem; }
+.table-scroll { overflow-x: auto; }
+.admin-table { border-collapse: collapse; min-width: 680px; width: 100%; }
+.admin-table th, .admin-table td { border: 1px solid var(--line); padding: 0.75rem; text-align: left; vertical-align: top; }
+.admin-table th { background: var(--nav); color: var(--surface); }
+.admin-table tbody tr:nth-child(even) { background: rgba(238, 232, 214, 0.7); }
+.admin-answer { margin: 0 0 0.35rem; overflow-wrap: anywhere; }
+.admin-answer:last-child { margin-bottom: 0; }
+
+/* FOOTER AND PAGE STATES: finish each page and preserve native hidden states. */
+.site-footer {
+    background: var(--nav);
+    border-top: 4px solid var(--accent);
+    color: var(--surface);
+    padding: 1.2rem;
+    text-align: center;
+}
+
+/* Remove default paragraph margins inside the footer. */
+.site-footer p { margin: 0; }
+
+/* Ensure native hidden states are respected alongside component styles. */
+[hidden] { display: none !important; }
+
+/* Introduce hero text with a gentle upward fade. */
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bring the hero image in from the side with a subtle rotation. */
+@keyframes poster-arrive {
+    from { opacity: 0; transform: translate(14px, 8px) rotate(5deg); }
+    to { opacity: 1; transform: rotate(2deg); }
+}
+
+/* RESPONSIVE TABLET LAYOUT: adjust navigation, cards and hero proportions. */
+@media (max-width: 1023px) {
+    .site-header { justify-content: center; }
+    .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ad-placement { margin-left: 1.25rem; margin-right: 1.25rem; }
+    .hero { grid-template-columns: 1fr 0.8fr; }
+    .hero-poster { max-height: 330px; }
+}
+
+/* RESPONSIVE MOBILE LAYOUT: stack navigation, forms and cards for small screens. */
+@media (max-width: 767px) {
+    .site-header { align-items: flex-start; flex-direction: column; gap: 0.5rem; padding: 1rem; }
+    .site-nav { gap: 0.15rem; }
+    .site-nav a { padding: 0.45rem 0.55rem; }
+    .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem; }
+    .hero-artwork { justify-self: center; }
+    .hero-poster { justify-self: center; max-height: 300px; }
+    .feature-grid, .movie-grid, .form-grid { grid-template-columns: 1fr; }
+    .ad-sidebar, .ad-banner, .ad-sponsor-card { grid-template-columns: 1fr; }
+    .ad-sidebar img, .ad-banner img, .ad-sponsor-card img { max-height: 260px; }
+    .ad-sidebar.ad-nuka img { justify-self: center; max-width: 285px; }
+    .ad-ticket { align-items: flex-start; }
+    .ad-ticket img { width: 42%; }
+    .genre-options { grid-template-columns: 1fr; }
+    .full-width { grid-column: auto; }
+    .movie-card-poster { height: 280px; }
+}
+
+/* ACCESSIBILITY: honour reduced-motion preferences across all interactions. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

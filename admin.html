@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 2: Movie Reccommendation and Booking System">
+    <meta name="author" content="Robert Clohesy 106886499">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <!-- Admin-only handlers are kept separate from the shared site behaviours. -->
+    <script src="js/favourites.js" defer></script>
+    <script src="js/admin.js" defer></script>
+    <title>Admin | Hao's Movie Empire</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt=""><span>Hao's Movie Empire</span></a>
+        <nav aria-label="Main navigation">
+            <ul class="site-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="recommend.html">Recommendations</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="booking.html">Book tickets</a></li>
+                <li><a href="watchlist.html">Favourites</a></li>
+                <li><a href="admin.html" aria-current="page">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="page-main">
+        <aside class="admin-access-banner" aria-label="Access restriction">
+            <span class="admin-access-icon" aria-hidden="true">!</span>
+            <div>
+                <p class="admin-access-label">Restricted area</p>
+                <h2>Authorised Access Only</h2>
+                <p>Admin console · Access is reserved for authorised personnel.</p>
+            </div>
+            <span class="admin-access-stamp" aria-hidden="true">ADMIN</span>
+        </aside>
+        <header class="page-heading">
+            <p class="eyebrow">Administrators Login</p>
+            <h1>Admin submissions</h1>
+            <p>View form entries saved in this browser using the reverse of 54321. View Stored booking and Favourite detials.</p>
+        </header>
+        <form id="adminLoginForm" class="form-card narrow-main">
+            <div class="form-field">
+                <label for="adminPassword">Admin Access Code</label>
+                <input id="adminPassword" name="password" type="password" required autocomplete="off">
+            </div>
+            <button class="button" type="submit">View saved entries</button>
+            <p id="adminStatus" class="status-message" role="status" aria-live="polite"></p>
+        </form>
+        <section id="adminResults" class="admin-results" hidden aria-label="Saved form entries">
+            <h2>Saved entries</h2>
+            <div class="table-scroll">
+                <table class="admin-table">
+                    <thead><tr><th scope="col">Submitted</th><th scope="col">Form</th><th scope="col">Answers</th></tr></thead>
+                    <tbody id="adminSubmissionRows"></tbody>
+                </table>
+            </div>
+        </section>
+        <section id="adminWatchlistResults" class="admin-results" hidden aria-label="Local favourite selections">
+            <h2>Movie interest for future sessions</h2>
+            <p>Counts show favourite additions, recommendation results and saved customer suggestions in this browser. Suggestions matching a catalogue title are grouped with that movie; other suggestions appear as their own rows. The site has no customer login, so this is not unique-customer data and is not combined across devices.</p>
+            <p id="adminWatchlistStatus" class="status-message" role="status" aria-live="polite"></p>
+            <div class="table-scroll">
+                <table class="admin-table">
+                    <thead><tr><th scope="col">Movie</th><th scope="col">Genre</th><th scope="col">Times favourited</th><th scope="col">Times recommended</th><th scope="col">Customer suggestions</th><th scope="col">Currently in favourites</th><th scope="col">Both (overlap)</th></tr></thead>
+                    <tbody id="adminWatchlistRows"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>Hao's Movie Empire - a student-created movie discovery and booking demo.</p>
+    </footer>
+</body>
+</html>
